@@ -44,17 +44,4 @@ db.serialize(() => {
   });
 });
 
-// Debug: Log row counts for each table on startup
-function logTableCount(table) {
-  db.get(`SELECT COUNT(*) as count FROM ${table}`, (err, row) => {
-    if (err) {
-      console.error(`Error querying table ${table}:`, err.message);
-    } else {
-      console.log(`Table '${table}' has ${row.count} row(s).`);
-    }
-  });
-}
-
-['donations', 'members', 'contacts'].forEach(logTableCount);
-
 module.exports = db;
