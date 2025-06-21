@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KUCSA - Leadership</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #060a06;
+      --secondary-color: #31eb0c;
+      --accent-color: #1a73e8;
+    }
+    
+    .hero {
+      background: var(--primary-color);
+      color: var(--secondary-color);
+      padding: 80px 0;
+      text-align: center;
+      background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('img/leadership-banner.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .section-title {
+      margin-top: 50px;
+      margin-bottom: 30px;
+      font-weight: bold;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      background: var(--secondary-color);
+      bottom: -10px;
+      left: 25%;
+    }
+    
+    .footer {
+      background: var(--primary-color);
+      color: white;
+      padding: 40px 0 20px;
+      text-align: center;
+      margin-top: 50px;
+    }
+    
+    .leader-card {
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: none;
+      height: 100%;
+      text-align: center;
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+    
+    .leader-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .leader-img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 12px;
+      border: 3px solid var(--secondary-color);
+      margin: 0 auto 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .leadership-section {
+      padding: 40px 0;
+      background: #f8f9fa;
+      margin-bottom: 30px;
+      border-radius: 10px;
+    }
+    
+    .position-badge {
+      background: var(--secondary-color);
+      color: var(--primary-color);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    
+    .social-icon {
+      color: var(--primary-color);
+      font-size: 1.3rem;
+      margin: 0 6px;
+      transition: color 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      color: var(--accent-color);
+    }
+    
+    .message-box {
+      background: white;
+      border-left: 4px solid var(--secondary-color);
+      padding: 25px;
+      border-radius: 8px;
+      margin: 35px 0;
+    }
+    
+    .subcounty-badge {
+      background: var(--accent-color);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      display: inline-block;
+      margin-top: 8px;
+    }
+    
+    .timeline {
+      position: relative;
+      padding-left: 35px;
+      margin-top: 35px;
+    }
+    
+    .timeline:before {
+      content: '';
+      position: absolute;
+      left: 12px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--secondary-color);
+    }
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: 25px;
+      padding-bottom: 25px;
+    }
+    
+    .timeline-item:before {
+      content: '';
+      position: absolute;
+      left: -35px;
+      top: 5px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--primary-color);
+      border: 2px solid var(--secondary-color);
+    }
+    
+    .nav-pills .nav-link.active {
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+    }
+    
+    .nav-pills .nav-link {
+      color: var(--primary-color);
+    }
+
+    .navbar-nav .nav-link.active, .navbar-nav .nav-link:focus, .navbar-nav .nav-link:active {
+      color: var(--secondary-color) !important;
+      box-shadow: 0 0 10px 2px var(--secondary-color);
+      background-color: rgba(49, 235, 12, 0.1);
+      border-radius: 8px;
+      transition: box-shadow 0.3s, background 0.3s;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="container d-flex align-items-center justify-content-center justify-content-md-start" style="gap: 30px;">
+      <img src="kucsa_logo.png" alt="KUCSA Logo" style="height:150px; width:auto;" class="me-4 d-none d-md-block">
+      <div class="flex-grow-1 text-center text-md-start">
+        <h1 class="display-5 fw-bold">KUCSA Leadership</h1>
+        <p class="lead fs-4">"Build More in Unity"</p>
+        <p class="fs-5">Meet the team guiding our united student community</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="kucsa_logo.png" alt="KUCSA Logo" style="height: 40px; width:auto;" class="me-2">
+        KUCSA
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="About_us.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link active" href="leadership.html">Leadership</a></li>
+          <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+          <li class="nav-item"><a class="nav-link" href="news.html">News & Updates</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="membership.html">Membership</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacts.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Leadership Navigation -->
+  <div class="container my-4">
+    <ul class="nav nav-pills justify-content-center" id="leadershipTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="executive-tab" data-bs-toggle="pill" data-bs-target="#executive" type="button" role="tab">Executive</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="secretariat-tab" data-bs-toggle="pill" data-bs-target="#secretariat" type="button" role="tab">Secretariat</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="subcounty-tab" data-bs-toggle="pill" data-bs-target="#subcounty" type="button" role="tab">Subcounty Reps</button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="tab-content" id="leadershipTabsContent">
+    <!-- Executive Team -->
+    <div class="tab-pane fade show active" id="executive" role="tabpanel">
+      <div class="container my-5">
+        <h2 class="section-title text-center">Executive Leadership</h2>
+        <p class="text-center mb-5">The executive team provides strategic direction and represents KUCSA at the highest levels</p>
+        
+        <div class="row justify-content-center">
+          <!-- President -->
+          <div class="col-md-6 col-lg-5">
+            <div class="leader-card shadow-sm">
+              <img src="president.jpeg" alt="KUCSA President Joseph Ezekiel" class="leader-img">
+              <div class="position-badge">President</div>
+              <h4>JOSEPH EZEKIEL</h4>
+              <p class="text-muted">University of Eldoret</p>
+              <p>Leads the organization and represents KUCSA in all official matters</p>
+              <div>
+                <a href="https://x.com/Sindani_Joseph?t=QbhmwtBS-9RzfWC1Yi-j3Q&s=09" class="social-icon"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Deputy President -->
+          <div class="col-md-6 col-lg-5">
+            <div class="leader-card shadow-sm">
+              <img src="deputy.jpeg" alt="KUCSA Deputy President Brigid Chorunzira" class="leader-img">
+              <div class="position-badge">Deputy President</div>
+              <h4>Brigid Chorunzira</h4>
+              <p class="text-muted">Kisii University</p>
+              <p>Assists the president and acts in their absence</p>
+              
+            </div>
+          </div>
+        </div>
+        
+        <div class="message-box">
+          <h4><i class="fas fa-quote-left text-muted me-2"></i>Message from the President</h4>
+          <p class="mt-3">"We envision a united and empowered student community that works together for development and representation. Through KUCSA, we're building bridges across institutions and creating opportunities for all Kakamega students. Let's keep building more in unity."</p>
+          <p class="text-end mb-0">- Joseph Ezekiel, KUCSA President</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Secretariat -->
+    <div class="tab-pane fade" id="secretariat" role="tabpanel">
+      <div class="container my-5">
+        <h2 class="section-title text-center">Secretariat</h2>
+        <p class="text-center mb-5">The secretariat handles the day-to-day operations of KUCSA</p>
+        
+        <div class="row justify-content-center">
+          <!-- Secretary General -->
+          <div class="col-md-4 col-lg-3">
+            <div class="leader-card shadow-sm">
+              <img src="sg.jpeg" alt="KUCSA Secretary General Apilo Brian Juma" class="leader-img">
+              <div class="position-badge">Secretary General</div>
+              <h4>Apilo Brian Juma</h4>
+              <p class="text-muted">University of Nairobi</p>
+              <p>Oversees all administrative functions</p>
+            </div>
+          </div>
+          
+          <!-- Deputy Secretary -->
+          <div class="col-md-4 col-lg-3">
+            <div class="leader-card shadow-sm">
+              <img src="dsg.jpeg" alt="KUCSA Deputy Secretary Caren Munyendo" class="leader-img">
+              <div class="position-badge">Deputy Secretary General</div>
+              <h4>Caren Munyendo</h4>
+              <p class="text-muted">Egerton University</p>
+              <p>Assists the Secretary General</p>
+            </div>
+          </div>
+          
+          <!-- Finance Secretary -->
+          <div class="col-md-4 col-lg-3">
+            <div class="leader-card shadow-sm">
+              <img src="finance sec.jpeg" alt="KUCSA Finance Secretary Amani Larry" class="leader-img">
+              <div class="position-badge">Finance Secretary</div>
+              <h4>Amani Larry</h4>
+              <p class="text-muted">University of Eldoret</p>
+              <p>Manages all financial matters</p>
+            </div>
+          </div>
+          
+          <!-- Organizing Secretary -->
+          <div class="col-md-4 col-lg-3">
+            <div class="leader-card shadow-sm">
+              <img src="organizing sec.jpeg" alt="KUCSA Organizing Secretary Faheem Wesonga" class="leader-img">
+              <div class="position-badge">Organizing Secretary</div>
+              <h4>FAHEEM WESONGA</h4>
+              <p class="text-muted">Bungoma National Polytechnic</p>
+              <p>Coordinates events and programs</p>
+            </div>
+          </div>
+          
+          <!-- Publicity Secretary -->
+          <div class="col-md-4 col-lg-3">
+            <div class="leader-card shadow-sm">
+              <img src="Publicity.jpeg" alt="KUCSA Publicity Secretary Enock Soita" class="leader-img">
+              <div class="position-badge">Publicity Secretary</div>
+              <h4>Enock Soita</h4>
+              <p class="text-muted">University of Eldoret</p>
+              <p>Handles communications and media</p>
+            </div>
+          </div>
+          
+          <!-- Auditor General -->
+          <div class="col-md-4 col-lg-3">
+            <div class="leader-card shadow-sm">
+              <img src="auditor.jpeg" alt="KUCSA Auditor General Dismus Barasa" class="leader-img">
+              <div class="position-badge">Auditor General</div>
+              <h4>Dismus Barasa</h4>
+              <p class="text-muted">Masinde Muliro University</p>
+              <p>Auditor general</p>
+            </div>
+          </div>
+        
+
+          <div class="col-md-4 col-lg-3">
+            <div class="leader-card shadow-sm">
+              <img src="advisor.jpeg" alt="KUCSA Auditor General Dismus Barasa" class="leader-img">
+              <div class="position-badge">Chief Advisor</div>
+              <h4>Jairus Wambulwa</h4>
+              <p class="text-muted">Alumini</p>
+              <p>Chief advisor</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="timeline">
+          <h4 class="mb-4">Recent Secretariat Activities</h4>
+          <div class="timeline-item">
+            <h5>Annual General Meeting Planning</h5>
+            <p class="text-muted">May 2025 - Preparing for the upcoming AGM</p>
+          </div>
+          <div class="timeline-item">
+            <h5>Leadership Training Workshop</h5>
+            <p class="text-muted">April 2025 - Conducted capacity building for new leaders</p>
+          </div>
+          <div class="timeline-item">
+            <h5>Community Clean-up Initiative</h5>
+            <p class="text-muted">March 2025 - Organized county-wide clean-up</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Subcounty Representatives -->
+    <div class="tab-pane fade" id="subcounty" role="tabpanel">
+      <div class="container my-5">
+        <h2 class="section-title text-center">Subcounty Representatives</h2>
+        <p class="text-center mb-5">Our representatives across Kakamega County's subcounties</p>
+        
+        <div class="row justify-content-center">
+          <!-- Lugari -->
+          <div class="col-md-3 col-6">
+            <div class="leader-card shadow-sm">
+              <img src="lugari rep.jpeg" alt="Lugari Representative Isaac Mukasu" class="leader-img">
+              <h5>Isaac Mukasu</h5>
+              <div class="subcounty-badge">LUGARI</div>
+              
+            </div>
+          </div>
+          
+          <!-- Lurambi -->
+          <div class="col-md-3 col-6">
+            <div class="leader-card shadow-sm">
+              <img src="lurambi.jpeg" alt="Lurambi Representative Ian Mackmillan" class="leader-img">
+              <h5>Ian Mackmillan</h5>
+              <div class="subcounty-badge">LURAMBI</div>
+              
+            </div>
+          </div>
+          
+          <!-- Likuyani -->
+          <div class="col-md-3 col-6">
+            <div class="leader-card shadow-sm">
+              <img src="likuyani rep.jpeg" alt="Likuyani Representative Sharon" class="leader-img">
+              <h5>Sharon</h5>
+              <div class="subcounty-badge">LIKUYANI</div>
+              
+            </div>
+          </div>
+          
+          <!-- Malava -->
+          <div class="col-md-3 col-6">
+            <div class="leader-card shadow-sm">
+              <img src="malava rep.jpeg" alt="Malava Representative Morgan Mutsami" class="leader-img">
+              <h5>MORGAN MUTSAMI</h5>
+              <div class="subcounty-badge">MALAVA</div>
+              
+            </div>
+          </div>
+          
+          <!-- Navakholo -->
+          <div class="col-md-3 col-6">
+            <div class="leader-card shadow-sm">
+              <img src="navakholo rep.jpeg" alt="Navakholo Representative Wanjala Dancan" class="leader-img">
+              <h5>WANJALA DANCAN</h5>
+              <div class="subcounty-badge">NAVAKHOLO</div>
+              
+            </div>
+          </div>
+          
+          <!-- Ikolomani -->
+          <div class="col-md-3 col-6">
+            <div class="leader-card shadow-sm">
+              <img src="ikolomani rep.jpeg" alt="Ikolomani Representative Albina Muhalave" class="leader-img">
+              <h5>ALBINA MUHALAVE</h5>
+              <div class="subcounty-badge">IKOLOMANI</div>
+              
+            </div>
+          </div>
+
+          <!-- Kwisero -->
+          <div class="col-md-3 col-6">
+            <div class="leader-card shadow-sm">
+              <img src="kwisero.jpeg" alt="Kwisero Representative Eyamah Titus" class="leader-img">
+              <h5>EYAMAH TITUS</h5>
+              <div class="subcounty-badge">KHWISERO</div>
+              
+            </div>
+          </div>
+          
+          <!-- Shinyalu -->
+          <div class="col-md-3 col-6">
+            <div class="leader-card shadow-sm">
+              <img src="img/leadership/shinyalu-rep.jpg" alt="Shinyalu Representative Mercy Wambui" class="leader-img">
+              <h5>Mercy Wambui</h5>
+              <div class="subcounty-badge">SHINYALU</div>
+             
+            </div>
+          </div>
+          
+          <!-- Butere -->
+          <div class="col-md-3 col-6">
+            <div class="leader-card shadow-sm">
+              <img src="img/leadership/butere-rep.jpg" alt="Butere Representative Victor Omondi" class="leader-img">
+              <h5>Victor Omondi</h5>
+              <div class="subcounty-badge">BUTERE</div>
+             
+            </div>
+          </div>
+          
+          <!-- Mumias West -->
+          <div class="col-md-3 col-6">
+            <div class="leader-card shadow-sm">
+              <img src="mumiasw.jpeg" alt="Mumias West Representative George Andeda" class="leader-img">
+              <h5>George Andeda</h5>
+              <div class="subcounty-badge">MUMIAS WEST</div>
+              
+            </div>
+          </div>
+          
+          <!-- Mumias East -->
+          <div class="col-md-3 col-6">
+            <div class="leader-card shadow-sm">
+              <img src="img/leadership/mumias-east-rep.jpg" alt="Mumias East Representative Brian Musyoka" class="leader-img">
+              <h5>Brian Musyoka</h5>
+              <div class="subcounty-badge">MUMIAS EAST</div>
+              
+            </div>
+          </div>
+          
+          <!-- Matungu -->
+          <div class="col-md-3 col-6">
+            <div class="leader-card shadow-sm">
+              <img src="img/leadership/matungu-rep.jpg" alt="Matungu Representative Sharon Naliaka" class="leader-img">
+              <h5>Sharon Naliaka</h5>
+              <div class="subcounty-badge">MATUNGU</div>
+              
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center mt-4">
+          <div class="alert alert-info">
+            <h5>Subcounty Representative Program</h5>
+            <p>Our subcounty representatives ensure KUCSA's presence across Kakamega County, bringing our programs closer to students in all regions.</p>
+            <a href="membership.html" class="btn btn-sm btn-success">Become a Representative</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start">
+          <p>&copy; 2025 KUCSA. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <p>Office of the President - Kakamega Universities and Colleges Students Association</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Only activate the first tab if none is active (Bootstrap handles tab switching)
+    document.addEventListener('DOMContentLoaded', function() {
+      var activeTab = document.querySelector('.nav-pills .nav-link.active');
+      if (!activeTab) {
+        var firstTab = new bootstrap.Tab(document.getElementById('executive-tab'));
+        firstTab.show();
+      }
+    });
+  </script>
+</body>
+</html>

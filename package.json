@@ -1,0 +1,22 @@
+{
+  "name": "kucsa-webapp",
+  "version": "1.0.0",
+  "description": "KUCSA Node.js web app with SQLite donation backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "sqlite3": "^5.1.6",
+    "helmet": "^7.0.0",
+    "compression": "^1.7.4"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}

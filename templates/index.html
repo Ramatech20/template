@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KUCSA - Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #060a06;
+      --secondary-color: #31eb0c;
+      --accent-color: #1a73e8;
+      --gbv-color: #dc3545;
+    }
+    
+    .hero {
+      background: var(--primary-color);
+      color: var(--secondary-color);
+      padding: 80px 0;
+      text-align: center;
+      background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('img/banner.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .section-title {
+      margin-top: 50px;
+      margin-bottom: 30px;
+      font-weight: bold;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      background: var(--secondary-color);
+      bottom: -10px;
+      left: 25%;
+    }
+    
+    .footer {
+      background: var(--primary-color);
+      color: white;
+      padding: 40px 0 20px;
+      text-align: center;
+      margin-top: 50px;
+    }
+    
+    .donation-section {
+      background-color: #f0f8ff;
+      padding: 60px 0;
+      margin-top: 50px;
+    }
+    
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: none;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 100%;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .stats-counter {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--secondary-color);
+    }
+    
+    .gallery-img {
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .gallery-img:hover {
+      transform: scale(1.03);
+    }
+    
+    .social-icon {
+      color: white;
+      font-size: 1.5rem;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      color: var(--secondary-color);
+    }
+    
+    .btn-primary {
+      background-color: var(--accent-color);
+      border-color: var(--accent-color);
+    }
+    
+    .btn-primary:hover {
+      background-color: #0d5bba;
+      border-color: #0d5bba;
+    }
+    
+    .btn-success {
+      background-color: var(--secondary-color);
+      border-color: var(--secondary-color);
+      color: var(--primary-color);
+    }
+    
+    .btn-success:hover {
+      background-color: #28a745;
+      border-color: #28a745;
+    }
+    
+    .btn-danger {
+      background-color: var(--gbv-color);
+      border-color: var(--gbv-color);
+    }
+    
+    .btn-danger:hover {
+      background-color: #bb2d3b;
+      border-color: #b02a37;
+    }
+    
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: none;
+      background: var(--secondary-color);
+      color: var(--primary-color);
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      z-index: 999;
+    }
+    
+    .back-to-top:hover {
+      background: var(--accent-color);
+      color: white;
+    }
+    
+    .news-badge {
+      background: var(--accent-color);
+      color: white;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+    
+    .gbv-badge {
+      background: var(--gbv-color);
+    }
+    
+    .leadership-badge {
+      background: var(--secondary-color);
+      color: var(--primary-color);
+    }
+    
+    .mission-vision-card {
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .mission-vision-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .vision-card {
+      background: linear-gradient(135deg, rgba(6,10,6,0.1) 0%, rgba(49,235,12,0.1) 100%);
+      border-left: 4px solid var(--secondary-color);
+    }
+    
+    .mission-card {
+      background: linear-gradient(135deg, rgba(6,10,6,0.1) 0%, rgba(26,115,232,0.1) 100%);
+      border-left: 4px solid var(--accent-color);
+    }
+  </style>
+</head>
+<body>
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="container d-flex align-items-center justify-content-center justify-content-md-start" style="gap: 30px;">
+      <img src="kucsa_logo.png" alt="KUCSA Logo" style="height: 150px; width:auto;" class="me-4 d-none d-md-block">
+      <div class="flex-grow-1 text-center text-md-start">
+        <h1>KAKAMEGA UNIVERSITIES AND COLLEGES STUDENTS ASSOCIATION</h1>
+        <p class="lead fs-3">"Build More in Unity"</p>
+        <p class="fs-5">An official registered organization uniting 3000+ students across Kakamega County</p>
+        <div class="mt-3">
+          <a href="membership.html" class="btn btn-success btn-lg me-2">Join Us Today</a>
+          <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#donationModal">
+            <i class="fas fa-donate me-2"></i>Donate
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="kucsa_logo.png" alt="KUCSA Logo" style="height: 40px; width:auto;" class="me-2">
+        KUCSA
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="About_us.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="leadership.html">Leadership</a></li>
+          <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+          <li class="nav-item"><a class="nav-link" href="news.html">News & Updates</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="membership.html">Membership</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacts.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Stats Counter -->
+  <div class="container my-5 py-4">
+    <div class="row text-center">
+      <div class="col-md-3 mb-4">
+        <div class="stats-counter">3000+</div>
+        <p>Members</p>
+      </div>
+      <div class="col-md-3 mb-4">
+        <div class="stats-counter">15+</div>
+        <p>Institutions</p>
+      </div>
+      <div class="col-md-3 mb-4">
+        <div class="stats-counter">10+</div>
+        <p>Events Yearly</p>
+      </div>
+      <div class="col-md-3 mb-4">
+        <div class="stats-counter">5+</div>
+        <p>Community Projects</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Welcome Message with Vision & Mission -->
+  <div class="container text-center my-5 py-4">
+    <h2 class="section-title">Welcome to KUCSA</h2>
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <p class="lead">Welcome to the official website of Kakamega Universities and Colleges Students Association (KUCSA). We are dedicated to promoting unity, cooperation, and student welfare among students from Kakamega County.</p>
+        
+        <div class="row mt-5">
+          <div class="col-md-6 mb-4">
+            <div class="mission-vision-card vision-card h-100">
+              <h3><i class="fas fa-eye me-2"></i>Our Vision</h3>
+              <p>To impact the communities where we live and beyond with other diverse cultures, in addition to our attained goals, skills, and training received during the period of membership, thereby building an all-rounded society that celebrates and enjoys the human resource by Kakamega County.</p>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="mission-vision-card mission-card h-100">
+              <h3><i class="fas fa-bullseye me-2"></i>Our Mission</h3>
+              <p>To bring all Kakamega County students together in unity, move together rising against all odds to impact the community positively.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center my-4">
+          <h4><i class="fas fa-quote-left me-2"></i>Build More in Unity<i class="fas fa-quote-right ms-2"></i></h4>
+          <p class="text-muted">Our Motto</p>
+        </div>
+        
+        <div class="mt-4">
+          <a href="About_us.html" class="btn btn-outline-primary me-2">Learn More About Us</a>
+          <a href="events.html" class="btn btn-primary me-2">Upcoming Events</a>
+          <a href="leadership.html" class="btn btn-success">Meet Our Leaders</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Latest News / Events -->
+  <div class="container my-5 py-4">
+    <h2 class="section-title text-center">Latest News & Events</h2>
+    <div class="row">
+      <!-- GBV Summit -->
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+          <img src="gbv.jpeg" class="card-img-top" alt="GBV Summit">
+          <div class="card-body">
+            <div class="d-flex justify-content-between mb-2">
+              <span class="news-badge gbv-badge">GBV Awareness</span>
+              <small class="text-muted">August 2025</small>
+            </div>
+            <h5 class="card-title">GBV Summit at MMUST</h5>
+            <p class="card-text">Join us for an important discussion on gender-based violence and teenage pregnancy prevention at Masinde Muliro University.</p>
+            <a href="news.html" class="btn btn-sm btn-danger">Read More</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- AGM -->
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+          <img src="agm.jpeg" class="card-img-top" alt="Annual General Meeting">
+          <div class="card-body">
+            <div class="d-flex justify-content-between mb-2">
+              <span class="news-badge leadership-badge">Annual Event</span>
+              <small class="text-muted">August 2025</small>
+            </div>
+            <h5 class="card-title">Annual General Meeting</h5>
+            <p class="card-text">Our AGM and swearing-in ceremony for new leaders will take place at Bukhungu Stadium. All members welcome.</p>
+            <a href="news.html" class="btn btn-sm btn-success">Read More</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Western Tour -->
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+          <img src="gbv.jpeg" class="card-img-top" alt="Western Tour">
+          <div class="card-body">
+            <div class="d-flex justify-content-between mb-2">
+              <span class="news-badge gbv-badge">GBV Campaign</span>
+              <small class="text-muted">August 2025</small>
+            </div>
+            <h5 class="card-title">Western Kenya GBV Tour</h5>
+            <p class="card-text">Multi-county tour addressing gender-based violence across Western Kenya institutions.</p>
+            <a href="news.html" class="btn btn-sm btn-danger">View Itinerary</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-3">
+      <a href="events.html" class="btn btn-primary me-2">View All Events</a>
+      <a href="news.html" class="btn btn-success">All News Updates</a>
+    </div>
+  </div>
+
+  <!-- Donation Section -->
+  <div class="donation-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <h2 class="section-title">Support Our Cause</h2>
+          <p>Your donations help us organize events, support student welfare programs, and run mentorship initiatives across Kakamega County.</p>
+          <div class="mt-4">
+            <button class="btn btn-success btn-lg me-3" data-bs-toggle="modal" data-bs-target="#donationModal">
+              <i class="fas fa-donate me-2"></i>Donate Now
+            </button>
+            <a href="About_us.html" class="btn btn-outline-primary btn-lg">Learn About Our Work</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card shadow">
+            <div class="card-body">
+              <h4 class="card-title">How Your Donation Helps</h4>
+              <ul class="list-unstyled">
+                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Funds our GBV awareness campaigns</li>
+                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Supports leadership training programs</li>
+                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Helps organize community service projects</li>
+                <li><i class="fas fa-check-circle text-success me-2"></i> Provides emergency assistance to students in need</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gallery -->
+  <div class="container my-5 py-4">
+    <h2 class="section-title text-center">Our Gallery</h2>
+    <div class="row g-3">
+      <div class="col-md-3 col-6">
+        <img src="leadership training.jpeg" alt="Leadership Training" class="img-fluid rounded gallery-img" data-bs-toggle="modal" data-bs-target="#galleryModal" onclick="showImage('leadership training.jpeg', 'Leadership Training')">
+      </div>
+      <div class="col-md-3 col-6">
+        <img src="mentorship program.jpeg" alt="Mentorship Program" class="img-fluid rounded gallery-img" data-bs-toggle="modal" data-bs-target="#galleryModal" onclick="showImage('mentorship program.jpeg', 'Mentorship Program')">
+      </div>
+      <div class="col-md-3 col-6">
+        <img src="gbv.jpeg" alt="GBV Awareness" class="img-fluid rounded gallery-img" data-bs-toggle="modal" data-bs-target="#galleryModal" onclick="showImage('gbv.jpeg', 'GBV Awareness Event')">
+      </div>
+      <div class="col-md-3 col-6">
+        <img src="agm.jpeg" alt="AGM Meeting" class="img-fluid rounded gallery-img" data-bs-toggle="modal" data-bs-target="#galleryModal" onclick="showImage('agm.jpeg', 'Annual General Meeting')">
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <a href="gallery.html" class="btn btn-primary">View Full Gallery</a>
+    </div>
+  </div>
+
+  <!-- Gallery Modal -->
+  <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="galleryModalTitle"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="" id="galleryModalImage" class="img-fluid" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GBV Awareness Section -->
+  <div class="bg-danger text-white py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <h2>Join Our Fight Against Gender-Based Violence</h2>
+          <p>KUCSA is committed to creating safe spaces for all students through awareness campaigns, education, and support programs.</p>
+          <div class="mt-4">
+            <a href="events.html" class="btn btn-light me-2">Upcoming GBV Events</a>
+            <a href="contacts.html" class="btn btn-outline-light">Report an Incident</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card shadow">
+            <div class="card-body">
+              <h4 class="card-title">GBV Resources</h4>
+              <ul class="list-unstyled">
+                <li class="mb-2"><i class="fas fa-phone-alt me-2"></i> GBV Hotline: 1195</li>
+                <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Counseling Centers at all member institutions</li>
+                <li class="mb-2"><i class="fas fa-book me-2"></i> Educational materials available</li>
+                <li><i class="fas fa-users me-2"></i> Support groups meeting weekly</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leadership Development Section -->
+  <div class="container my-5 py-4">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <img src="leadership training.jpeg" alt="Leadership Training" class="img-fluid rounded">
+      </div>
+      <div class="col-lg-6">
+        <h2 class="section-title">Leadership Development</h2>
+        <p>KUCSA provides comprehensive leadership training programs for student leaders across Kakamega County institutions.</p>
+        <ul class="list-unstyled">
+          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Quarterly leadership forums</li>
+          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Annual leadership training</li>
+          <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Mentorship programs</li>
+          <li><i class="fas fa-check-circle text-success me-2"></i> Policy engagement workshops</li>
+        </ul>
+        <a href="leadership.html" class="btn btn-success mt-3">Learn About Our Leaders</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Partners Section -->
+  <div class="container my-5 py-4">
+    <h2 class="section-title text-center">Our Partners</h2>
+    <div class="row justify-content-center align-items-center">
+      <div class="col-6 col-md-2 mb-4">
+        <img src="typni.png" alt="TYPNI(The Young People's Network International)" class="img-fluid">
+      </div>
+      <div class="col-6 col-md-2 mb-4">
+        <img src="download.jfif" alt="ASCAP_K Association of county students presidents Association Kenya" class="img-fluid">
+      </div>
+    </div>
+  </div>
+
+  <!-- Donation Modal -->
+  <div class="modal fade" id="donationModal" tabindex="-1" aria-labelledby="donationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="donationModalLabel">Support KUCSA</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-4">
+            <h6>Via M-Pesa:</h6>
+            <div class="input-group mb-2">
+              <span class="input-group-text">Paybill</span>
+              <input type="text" class="form-control" value="522533" readonly>
+              <button class="btn btn-outline-secondary" onclick="copyToClipboard('522533')">
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+            <div class="input-group mb-2">
+              <span class="input-group-text">Account</span>
+              <input type="text" class="form-control" value="7786101" readonly>
+              <button class="btn btn-outline-secondary" onclick="copyToClipboard('7786101')">
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+          </div>
+          
+          <hr>
+          
+          <h6 class="mb-3">Or donate directly via M-Pesa:</h6>
+          <form id="donationForm">
+            <div class="mb-3">
+              <label for="phoneNumber" class="form-label">M-Pesa Phone Number</label>
+              <input type="tel" class="form-control" id="phoneNumber" placeholder="e.g. 07XXXXXXXX" required>
+            </div>
+            <div class="mb-3">
+              <label for="amount" class="form-label">Amount (KES)</label>
+              <input type="number" class="form-control" id="amount" min="10" required>
+            </div>
+            <button type="submit" class="btn btn-success w-100">
+              <i class="fas fa-mobile-alt me-2"></i>Donate via M-Pesa
+            </button>
+          </form>
+          
+          <div class="alert alert-info mt-3">
+            <small>After clicking "Donate via M-Pesa", you will receive a prompt on your phone to enter your M-Pesa PIN to complete the transaction.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Newsletter -->
+  <div class="bg-primary text-white py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h3 class="mb-3">Stay Updated With KUCSA</h3>
+          <p class="mb-4">Subscribe to our newsletter to receive updates on events, news, and opportunities</p>
+          <form class="row g-2 justify-content-center">
+            <div class="col-md-8">
+              <input type="email" class="form-control form-control-lg" placeholder="Your Email Address">
+            </div>
+            <div class="col-md-4">
+              <button type="submit" class="btn btn-success btn-lg w-100">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5>About KUCSA</h5>
+          <p>KUCSA is a registered organization uniting students across Kakamega County for unity, development, and student welfare.</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="About_us.html" class="text-white">About Us</a></li>
+            <li><a href="events.html" class="text-white">Events</a></li>
+            <li><a href="membership.html" class="text-white">Membership</a></li>
+            <li><a href="leadership.html" class="text-white">Leadership</a></li>
+            <li><a href="gallery.html" class="text-white">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5>Contact Us</h5>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-map-marker-alt me-2"></i> Kakamega Town, Kenya</li>
+            <li><i class="fas fa-phone me-2"></i> +254112473354</li>
+            <li><i class="fas fa-envelope me-2"></i> kucscbo1@gmail.com</li>
+          </ul>
+          <div class="mt-3">
+            <a href="https://www.facebook.com/profile.php?id=61551987487506&mibextid=ZbWKwL" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/Sindani_Joseph?t=QbhmwtBS-9RzfWC1Yi-j3Q&s=09" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://whatsapp.com/channel/0029Va9QwL4JP21Bo0gqpM3o" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://vm.tiktok.com/ZMSU6F7E8/" class="social-icon"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="mt-4 bg-light">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start">
+          <p>&copy; 2025 KUCSA. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <p>Office of the President - Kakamega Universities and Colleges Students Association</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Back to top button
+    window.addEventListener('scroll', function() {
+      var backToTop = document.getElementById('backToTop');
+      if (window.pageYOffset > 300) {
+        backToTop.style.display = 'block';
+      } else {
+        backToTop.style.display = 'none';
+      }
+    });
+    
+    document.getElementById('backToTop').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+    
+    // Donation form
+    document.getElementById('donationForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const phone = document.getElementById('phoneNumber').value.trim();
+      const amount = document.getElementById('amount').value.trim();
+      // Optionally, you can add name/email fields to the form and collect them here
+      // For now, we'll use phone as name and leave email/message blank
+      const data = { name: phone, email: '', amount, message: 'M-Pesa donation' };
+      try {
+        const res = await fetch('/donate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const result = await res.json();
+        if (result.success) {
+          alert('Thank you for your donation! We appreciate your support.');
+          this.reset();
+          var modal = bootstrap.Modal.getInstance(document.getElementById('donationModal'));
+          modal.hide();
+        } else {
+          alert(result.error || 'Submission failed.');
+        }
+      } catch (err) {
+        alert('Network error. Please try again later.');
+      }
+    });
+    
+    // Gallery modal
+    function showImage(src, title) {
+      document.getElementById('galleryModalImage').src = src;
+      document.getElementById('galleryModalTitle').textContent = title;
+    }
+    
+    // Copy to clipboard
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(function() {
+        alert('Copied to clipboard: ' + text);
+      }, function() {
+        alert('Failed to copy text');
+      });
+    }
+  </script>
+</body>
+</html>

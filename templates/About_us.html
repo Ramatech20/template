@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KUCSA - Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #060a06;
+      --secondary-color: #31eb0c;
+      --accent-color: #1a73e8;
+    }
+    .hero {
+      background: var(--primary-color);
+      color: var(--secondary-color);
+      padding: 80px 0;
+      text-align: center;
+    }
+    .section-title {
+      margin-top: 50px;
+      margin-bottom: 30px;
+      font-weight: bold;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      background: var(--secondary-color);
+      bottom: -10px;
+      left: 25%;
+    }
+    .footer {
+      background: var(--primary-color);
+      color: white;
+      padding: 40px 0 20px;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .objective-item {
+      margin-bottom: 15px;
+      padding-left: 20px;
+      position: relative;
+    }
+    .objective-item:before {
+      content: "•";
+      color: #060a06;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+    .stats-card {
+      border-left: 4px solid #060a06;
+      padding: 15px;
+      margin-bottom: 20px;
+      background: #f8f9fa;
+      border-radius: 5px;
+    }
+    .mission-vision-card {
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .mission-vision-card:hover {
+      transform: translateY(-5px);
+    }
+    .vision-card {
+      background: linear-gradient(135deg, rgba(6,10,6,0.1) 0%, rgba(49,235,12,0.1) 100%);
+      border-left: 4px solid var(--secondary-color);
+    }
+    .mission-card {
+      background: linear-gradient(135deg, rgba(6,10,6,0.1) 0%, rgba(26,115,232,0.1) 100%);
+      border-left: 4px solid var(--accent-color);
+    }
+    .navbar-nav .nav-link.active, .navbar-nav .nav-link:focus, .navbar-nav .nav-link:active {
+      color: var(--secondary-color) !important;
+      box-shadow: 0 0 10px 2px var(--secondary-color);
+      background-color: rgba(49, 235, 12, 0.1);
+      border-radius: 8px;
+      transition: box-shadow 0.3s, background 0.3s;
+    }
+    .donate-btn {
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+    .donate-btn:hover {
+      background-color: #28a745;
+      color: white;
+    }
+    .donation-modal .input-group-text {
+      min-width: 100px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="container d-flex align-items-center justify-content-center justify-content-md-start" style="gap: 30px;">
+      <img src="kucsa_logo.png" alt="KUCSA Logo" style="height:130px; width:auto;" class="me-4 d-none d-md-block">
+      <div class="flex-grow-1 text-center text-md-start">
+        <h1><B>KAKAMEGA UNIVERSITIES AND COLLEGES STUDENTS ASSOCIATION</B></h1>
+        <p class="lead">"Build More in Unity"</p>
+        <p>An official registered organization platform that brings all Kakamega elites together for a common course of "UNITY OF PURPOSE"</p>
+        <button class="btn donate-btn mt-3" data-bs-toggle="modal" data-bs-target="#donationModal">
+          <i class="fas fa-donate me-2"></i>Donate Now
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="kucsa_logo.png" alt="KUCSA Logo" style="height: 40px; width:auto;" class="me-2">
+        KUCSA
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="About_us.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="leadership.html">Leadership</a></li>
+          <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+          <li class="nav-item"><a class="nav-link" href="news.html">News & Updates</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="membership.html">Membership</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacts.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- About Us Section -->
+  <div class="container my-5">
+    <h2 class="section-title">About KUCSA</h2>
+    <div class="row">
+      <div class="col-md-8">
+        <p>KUCSA (Kakamega Universities and Colleges Students Association) is an official registered organization platform that brings all Kakamega elites together for a common course of "UNITY OF PURPOSE".</p>
+        <p>The organization brings together all students in all tertiary institutions (Universities, Colleges, Polytechnics) across Kakamega County and Beyond. At the moment, we have managed to register and recruit up to 3000 students from various institutions.</p>
+        
+        <!-- Vision and Mission Section -->
+        <div class="row mt-5">
+          <div class="col-md-6">
+            <div class="mission-vision-card vision-card">
+              <h3><i class="fas fa-eye me-2"></i>Our Vision</h3>
+              <p>To impact the communities where we live and beyond with other diverse cultures, in addition to our attained goals, skills, and training received during the period of membership, thereby building an all-rounded society that celebrates and enjoys the human resource by Kakamega County.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mission-vision-card mission-card">
+              <h3><i class="fas fa-bullseye me-2"></i>Our Mission</h3>
+              <p>To bring all Kakamega County students together in unity, move together rising against all odds to impact the community positively.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center my-4">
+          <h4><i class="fas fa-quote-left me-2"></i>Build More in Unity<i class="fas fa-quote-right ms-2"></i></h4>
+          <p class="text-muted">Our Motto</p>
+        </div>
+        
+        <h3 class="mt-5 mb-3">Our Objectives</h3>
+        <div class="objective-item">Unity of purpose for all Kakamega county comrades in various institutions of Higher learning.</div>
+        <div class="objective-item">Bring together and promote mutual understanding in all aspects that affects its members.</div>
+        <div class="objective-item">Promote the welfare of its members, aid members at times of need and or emergencies through material and moral assistance.</div>
+        <div class="objective-item">Liaise and foster cooperation between the members and various groups and institutions.</div>
+        <div class="objective-item">Present itself back to the local community and those from the same area but different institutions to foster unity and cooperation.</div>
+        <div class="objective-item">Promote the participation of members to county programs and activities, projects and development to inculcate the spirit of patriotism and nationalism.</div>
+        <div class="objective-item">Discuss and outline our political stand as elites/youths from Kakamega county.</div>
+        
+        <div class="mt-5">
+          <button class="btn donate-btn" data-bs-toggle="modal" data-bs-target="#donationModal">
+            <i class="fas fa-donate me-2"></i>Support Our Cause
+          </button>
+        </div>
+        
+        <!-- Downloadable Document Section -->
+        <div class="my-4">
+          <a href="KUCSCBO_CONSTITUTION.pdf" download class="btn btn-outline-primary">
+            <i class="fas fa-file-download me-2"></i>Download KUCSA Constitution
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stats-card">
+          <h4>Our Reach</h4>
+          <p><strong>3000+</strong> registered members</p>
+          <p><strong>All</strong> tertiary institutions in Kenya</p>
+          <p><strong>United</strong> under one purpose</p>
+        </div>
+        <div class="stats-card">
+          <h4>Our Focus</h4>
+          <p>Student Welfare</p>
+          <p>Mentorship programs</p>
+          <p>Leadership Growth</p>
+          <p>County Unity</p>
+        </div>
+        <div class="stats-card bg-light">
+          <h4>Support Us</h4>
+          <p>Your donations help us:</p>
+          <ul>
+            <li>Organize events</li>
+            <li>Support student welfare</li>
+            <li>Run mentorship programs</li>
+          </ul>
+          <button class="btn donate-btn w-100 mt-2" data-bs-toggle="modal" data-bs-target="#donationModal">
+            Donate Now
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  <!-- Footer -->
+  <div class="footer">
+    <div class="container">
+      <p>&copy; 2025 KUCSA. All rights reserved.</p>
+      <p>Office of the President - Kakamega Universities and Colleges Students Association</p>
+      <div class="mt-3">
+        <button class="btn donate-btn" data-bs-toggle="modal" data-bs-target="#donationModal">
+          <i class="fas fa-donate me-2"></i>Make a Donation
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Donation Modal -->
+  <div class="modal fade" id="donationModal" tabindex="-1" aria-labelledby="donationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="donationModalLabel">Support KUCSA</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body donation-modal">
+          <div class="mb-4">
+            <h6>Via M-Pesa:</h6>
+            <div class="input-group mb-2">
+              <span class="input-group-text">Paybill</span>
+              <input type="text" class="form-control" value="522533" readonly>
+              <button class="btn btn-outline-secondary" onclick="copyToClipboard('522533')">
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+            <div class="input-group mb-2">
+              <span class="input-group-text">Account</span>
+              <input type="text" class="form-control" value="7786101" readonly>
+              <button class="btn btn-outline-secondary" onclick="copyToClipboard('7786101')">
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+          </div>
+          
+          <hr>
+          
+          <h6 class="mb-3">Or donate directly via M-Pesa:</h6>
+          <form id="mpesaDonationForm">
+            <div class="mb-3">
+              <label for="phoneNumber" class="form-label">M-Pesa Phone Number</label>
+              <input type="tel" class="form-control" id="phoneNumber" placeholder="e.g. 07XXXXXXXX" required>
+            </div>
+            <div class="mb-3">
+              <label for="amount" class="form-label">Amount (KES)</label>
+              <input type="number" class="form-control" id="amount" min="10" required>
+            </div>
+            <button type="submit" class="btn donate-btn w-100">
+              <i class="fas fa-mobile-alt me-2"></i>Donate via M-Pesa
+            </button>
+          </form>
+          
+          <div class="alert alert-info mt-3">
+            <small>After clicking "Donate via M-Pesa", you will receive a prompt on your phone to enter your M-Pesa PIN to complete the transaction.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Copy to clipboard function
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(function() {
+        alert('Copied to clipboard: ' + text);
+      }, function() {
+        alert('Failed to copy text');
+      });
+    }
+    
+    // M-Pesa donation form submission
+    document.getElementById('mpesaDonationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const phoneNumber = document.getElementById('phoneNumber').value;
+      const amount = document.getElementById('amount').value;
+      
+      // Here you would typically make an API call to your payment processor
+      // For demonstration, we'll show a success message
+      
+      alert(`Donation request sent to ${phoneNumber} for KES ${amount}. Please check your phone to complete the M-Pesa transaction by entering your PIN.`);
+      
+      // Reset form
+      this.reset();
+      
+      // Close modal after 3 seconds
+      setTimeout(() => {
+        const modal = bootstrap.Modal.getInstance(document.getElementById('donationModal'));
+        modal.hide();
+      }, 3000);
+    });
+  </script>
+</body>
+</html>

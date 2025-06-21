@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KUCSA - Gallery</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+  <style>
+    :root {
+      --primary-color: #060a06;
+      --secondary-color: #31eb0c;
+      --accent-color: #1a73e8;
+    }
+    
+    .hero {
+      background: var(--primary-color);
+      color: var(--secondary-color);
+      padding: 80px 0;
+      text-align: center;
+    }
+    
+    .section-title {
+      margin-top: 50px;
+      margin-bottom: 30px;
+      font-weight: bold;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      background: var(--secondary-color);
+      bottom: -10px;
+      left: 25%;
+    }
+    
+    .footer {
+      background: var(--primary-color);
+      color: white;
+      padding: 40px 0 20px;
+      text-align: center;
+      margin-top: 50px;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+    }
+    
+    @media (max-width: 991.98px) {
+      .footer {
+        left: 0;
+        right: 0;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100vw;
+      }
+    }
+    
+    html, body {
+      height: 100%;
+    }
+    
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    main {
+      flex: 1 0 auto;
+    }
+    
+    .event-card {
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 30px;
+      border: none;
+    }
+    
+    .event-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .event-img {
+      height: 200px;
+      object-fit: cover;
+      width: 100%;
+    }
+    
+    .event-date {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: var(--secondary-color);
+      color: var(--primary-color);
+      padding: 8px 12px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    
+    .event-badge {
+      background: var(--accent-color);
+      color: white;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+    
+    .filter-buttons {
+      margin-bottom: 30px;
+    }
+    
+    .filter-btn {
+      margin: 5px;
+      border-radius: 20px;
+      padding: 5px 15px;
+      transition: all 0.3s ease;
+    }
+    
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--secondary-color);
+      color: var(--primary-color);
+      border-color: var(--secondary-color);
+    }
+    
+    .newsletter-section {
+      background-color: #f8f9fa;
+      padding: 50px 0;
+      margin-top: 50px;
+    }
+    
+    .social-icon {
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      color: var(--accent-color);
+    }
+
+    .gbv-badge {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    /* Gallery specific styles */
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(6, 10, 6, 0.8);
+      color: white;
+      padding: 15px;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .gallery-item:hover .gallery-caption {
+      transform: translateY(0);
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      display: none;
+      background: var(--secondary-color);
+      color: var(--primary-color);
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      z-index: 999;
+    }
+    
+    .back-to-top:hover {
+      background: var(--accent-color);
+      color: white;
+    }
+
+    .navbar-nav .nav-link.active, .navbar-nav .nav-link:focus, .navbar-nav .nav-link:active {
+      color: var(--secondary-color) !important;
+      box-shadow: 0 0 10px 2px var(--secondary-color);
+      background-color: rgba(49, 235, 12, 0.1);
+      border-radius: 8px;
+      transition: box-shadow 0.3s, background 0.3s;
+    }
+  </style>
+</head>
+<body>
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="container d-flex align-items-center justify-content-center justify-content-md-start" style="gap: 30px;">
+      <img src="kucsa_logo.png" alt="KUCSA Logo" style="height:150px; width:auto;" class="me-4 d-none d-md-block">
+      <div class="flex-grow-1 text-center text-md-start">
+        <h1 class="display-5 fw-bold">KUCSA Gallery</h1>
+        <p class="lead fs-4">"Build More in Unity"</p>
+        <p class="fs-5">Capturing our journey, events, and memorable moments</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="kucsa_logo.png" alt="KUCSA Logo" style="height: 40px; width:auto;" class="me-2">
+        KUCSA
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="About_us.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="leadership.html">Leadership</a></li>
+          <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+          <li class="nav-item"><a class="nav-link" href="news.html">News & Updates</a></li>
+          <li class="nav-item"><a class="nav-link active" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="membership.html">Membership</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacts.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Gallery Filters -->
+  <div class="container my-5">
+    <div class="text-center filter-buttons">
+      <button class="btn btn-outline-secondary filter-btn active" data-filter="all">All Photos</button>
+      <button class="btn btn-outline-secondary filter-btn" data-filter="events">Events</button>
+      <button class="btn btn-outline-secondary filter-btn" data-filter="community">Community Service</button>
+      <button class="btn btn-outline-secondary filter-btn" data-filter="meetings">Meetings</button>
+      <button class="btn btn-outline-secondary filter-btn" data-filter="tree-planting">Tree Planting</button>
+      <button class="btn btn-outline-secondary filter-btn" data-filter="mentorship">Mentorship</button>
+      <button class="btn btn-outline-secondary filter-btn" data-filter="gbv">GBV Events</button>
+    </div>
+  </div>
+
+  <!-- Featured Gallery Section -->
+  <div class="container my-5">
+    <h2 class="section-title">Featured Albums</h2>
+    <div class="row">
+      <!-- AGM Album -->
+      <div class="col-md-4 mb-4">
+        <div class="card event-card h-100">
+          <div class="position-relative">
+            <a href="agm.jpeg" data-lightbox="agm-album" data-title="Annual General Meeting">
+              <img src="agm.jpeg" class="event-img" alt="Annual General Meeting">
+            </a>
+            <div class="event-date">AUGUST 2025</div>
+          </div>
+          <div class="card-body">
+            <span class="event-badge">Annual Event</span>
+            <h4 class="card-title">Annual General Meeting</h4>
+            <p class="card-text">Highlights from our biggest event of the year featuring leadership transition and strategic planning.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- GBV Awareness Album -->
+      <div class="col-md-4 mb-4">
+        <div class="card event-card h-100">
+          <div class="position-relative">
+            <a href="gbv.jpeg" data-lightbox="gbv-album" data-title="GBV Awareness Campaign">
+              <img src="gbv.jpeg" class="event-img" alt="GBV Awareness">
+            </a>
+            <div class="event-date">AUG 2025</div>
+          </div>
+          <div class="card-body">
+            <span class="event-badge gbv-badge">GBV Awareness</span>
+            <h4 class="card-title">GBV Awareness Campaign</h4>
+            
+            <p class="card-text">Our comprehensive summit addressing gender-based violence in our communities.</p>
+            
+          </div>
+        </div>
+      </div>
+      
+      <!-- Leadership Training Album -->
+      <div class="col-md-4 mb-4">
+        <div class="card event-card h-100">
+          <div class="position-relative">
+            <a href="leadership training.jpeg" data-lightbox="training-album" data-title="Leadership Training">
+              <img src="leadership training.jpeg" class="event-img" alt="Leadership Training">
+            </a>
+            <div class="event-date">MAy 2025</div>
+          </div>
+          <div class="card-body">
+            <span class="event-badge">Training</span>
+            <h4 class="card-title">Leadership Training Workshop</h4>
+            
+            <p class="card-text">Capacity building for new student leaders across Western Kenya institutions.</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Photo Gallery Section -->
+  <div class="container my-5">
+    <h2 class="section-title">Photo Gallery</h2>
+    <div class="row gallery-container">
+      <!-- AGM Photos -->
+      <div class="col-md-4 col-sm-6 gallery-item" data-category="events">
+        <a href="agm.jpeg" data-lightbox="gallery" data-title="AGM 2024 - Swearing In Ceremony">
+          <img src="agm.jpeg" alt="AGM 2024">
+          <div class="gallery-caption">
+            <h5>AGM 2024 - Swearing In</h5>
+            <p>December 15, 2024</p>
+          </div>
+        </a>
+      </div>
+      
+      <!-- GBV Photos -->
+      <div class="col-md-4 col-sm-6 gallery-item" data-category="gbv">
+        <a href="gbv.jpeg" data-lightbox="gallery" data-title="GBV Awareness Summit">
+          <img src="gbv.jpeg" alt="GBV Awareness">
+          <div class="gallery-caption">
+            <h5>GBV Awareness Summit</h5>
+            <p>September 20, 2024</p>
+          </div>
+        </a>
+      </div>
+      
+      <!-- Leadership Training -->
+      <div class="col-md-4 col-sm-6 gallery-item" data-category="meetings">
+        <a href="leadership training.jpeg" data-lightbox="gallery" data-title="Leadership Training Workshop">
+          <img src="leadership training.jpeg" alt="Leadership Training">
+          <div class="gallery-caption">
+            <h5>Leadership Training</h5>
+            <p>March 10, 2024</p>
+          </div>
+        </a>
+      </div>
+      
+      <!-- Mentorship Program -->
+      <div class="col-md-4 col-sm-6 gallery-item" data-category="mentorship">
+        <a href="mentorship program.jpeg" data-lightbox="gallery" data-title="High School Mentorship Program">
+          <img src="mentorship program.jpeg" alt="Mentorship Program">
+          <div class="gallery-caption">
+            <h5>Mentorship Program</h5>
+            <p>February 28, 2024</p>
+          </div>
+        </a>
+      </div>
+      
+      <!-- Tree Planting -->
+      <div class="col-md-4 col-sm-6 gallery-item" data-category="tree-planting">
+        <a href="img/gallery/tree-planting.jpg" data-lightbox="gallery" data-title="Environmental Conservation Initiative">
+          <img src="img/gallery/tree-planting.jpg" alt="Tree Planting">
+          <div class="gallery-caption">
+            <h5>Tree Planting Initiative</h5>
+            <p>January 5, 2024</p>
+          </div>
+        </a>
+      </div>
+      
+      <!-- Community Service -->
+      <div class="col-md-4 col-sm-6 gallery-item" data-category="community">
+        <a href="img/gallery/community-cleanup.jpg" data-lightbox="gallery" data-title="Kakamega Town Cleanup">
+          <img src="img/gallery/community-cleanup.jpg" alt="Town Cleanup">
+          <div class="gallery-caption">
+            <h5>Kakamega Town Cleanup</h5>
+            <p>November 15, 2023</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Leaders Meetings Photos -->
+      <div class="col-md-4 col-sm-6 gallery-item" data-category="meetings">
+        <a href="00.jpeg" data-lightbox="gallery" data-title="Leaders Meeting 00">
+          <img src="00.jpeg" alt="Leaders Meeting 00">
+          <div class="gallery-caption">
+            <h5>Leaders Meeting 00</h5>
+            <p>Leaders Meetings</p>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4 col-sm-6 gallery-item" data-category="meetings">
+        <a href="1.jpeg" data-lightbox="gallery" data-title="Leaders Meeting 1">
+          <img src="1.jpeg" alt="Leaders Meeting 1">
+          <div class="gallery-caption">
+            <h5>Leaders Meeting 1</h5>
+            <p>Leaders Meetings</p>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4 col-sm-6 gallery-item" data-category="meetings">
+        <a href="2.jpeg" data-lightbox="gallery" data-title="Leaders Meeting 2">
+          <img src="2.jpeg" alt="Leaders Meeting 2">
+          <div class="gallery-caption">
+            <h5>Leaders Meeting 2</h5>
+            <p>Leaders Meetings</p>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4 col-sm-6 gallery-item" data-category="meetings">
+        <a href="3.jpeg" data-lightbox="gallery" data-title="Leaders Meeting 3">
+          <img src="3.jpeg" alt="Leaders Meeting 3">
+          <div class="gallery-caption">
+            <h5>Leaders Meeting 3</h5>
+            <p>Leaders Meetings</p>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4 col-sm-6 gallery-item" data-category="meetings">
+        <a href="4.jpeg" data-lightbox="gallery" data-title="Leaders Meeting 4">
+          <img src="4.jpeg" alt="Leaders Meeting 4">
+          <div class="gallery-caption">
+            <h5>Leaders Meeting 4</h5>
+            <p>Leaders Meetings</p>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4 col-sm-6 gallery-item" data-category="meetings">
+        <a href="5.jpeg" data-lightbox="gallery" data-title="Leaders Meeting 5">
+          <img src="5.jpeg" alt="Leaders Meeting 5">
+          <div class="gallery-caption">
+            <h5>Leaders Meeting 5</h5>
+            <p>Leaders Meetings</p>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4 col-sm-6 gallery-item" data-category="meetings">
+        <a href="6.jpeg" data-lightbox="gallery" data-title="Leaders Meeting 6">
+          <img src="6.jpeg" alt="Leaders Meeting 6">
+          <div class="gallery-caption">
+            <h5>Leaders Meeting 6</h5>
+            <p>Leaders Meetings</p>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4 col-sm-6 gallery-item" data-category="meetings">
+        <a href="7.jpeg" data-lightbox="gallery" data-title="Leaders Meeting 7">
+          <img src="7.jpeg" alt="Leaders Meeting 7">
+          <div class="gallery-caption">
+            <h5>Leaders Meeting 7</h5>
+            <p>Leaders Meetings</p>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4 col-sm-6 gallery-item" data-category="meetings">
+        <a href="8.jpeg" data-lightbox="gallery" data-title="Leaders Meeting 8">
+          <img src="8.jpeg" alt="Leaders Meeting 8">
+          <div class="gallery-caption">
+            <h5>Leaders Meeting 8</h5>
+            <p>Leaders Meetings</p>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4 col-sm-6 gallery-item" data-category="meetings">
+        <a href="9.jpeg" data-lightbox="gallery" data-title="Leaders Meeting 9">
+          <img src="9.jpeg" alt="Leaders Meeting 9">
+          <div class="gallery-caption">
+            <h5>Leaders Meeting 9</h5>
+            <p>Leaders Meetings</p>
+          </div>
+        </a>
+      </div>
+      <!-- Additional Images -->
+      
+      <div class="col-md-4 col-sm-6 gallery-item" data-category="other">
+        <a href="forum.jpeg" data-lightbox="gallery" data-title="forum.jpeg">
+          <img src="forum.jpeg" alt="forum.jpeg">
+          <div class="gallery-caption">
+            <h5>forum.jpeg</h5>
+          </div>
+        </a>
+      </div>
+      
+      
+      
+        
+      <div class="col-md-4 col-sm-6 gallery-item" data-category="other">
+        <a href="meeting.jpeg" data-lightbox="gallery" data-title="meeting.jpeg">
+          <img src="meeting.jpeg" alt="meeting.jpeg">
+          <div class="gallery-caption">
+            <h5>meeting.jpeg</h5>
+          </div>
+        </a>
+      </div>
+      
+      
+      
+      <div class="col-md-4 col-sm-6 gallery-item" data-category="other">
+        <a href="past agm.jpeg" data-lightbox="gallery" data-title="past agm.jpeg">
+          <img src="past agm.jpeg" alt="past agm.jpeg">
+          <div class="gallery-caption">
+            <h5>past agm.jpeg</h5>
+          </div>
+        </a>
+      </div>
+      
+    
+    <div class="text-center mt-4">
+      <button class="btn btn-primary" id="loadMore">Load More Photos</button>
+    </div>
+  </div>
+
+  <!-- Newsletter -->
+  <div class="newsletter-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h3>Stay Updated With KUCSA</h3>
+          <p class="mb-4">Subscribe to our newsletter to receive updates on our events and activities</p>
+          <form class="row g-2 justify-content-center">
+            <div class="col-md-8">
+              <input type="email" class="form-control form-control-lg" placeholder="Your Email Address" required>
+            </div>
+            <div class="col-md-4">
+              <button type="submit" class="btn btn-success btn-lg w-100">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4 mb-md-0 text-center text-md-start">
+          <img src="kucsa_logo.png" alt="KUCSA Logo" style="height: 60px; width:auto;" class="mb-3">
+          <p>"Build More in Unity"</p>
+          <div class="mt-3">
+            <a href="https://www.facebook.com/profile.php?id=61551987487506&mibextid=ZbWKwL" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/Sindani_Joseph?t=QbhmwtBS-9RzfWC1Yi-j3Q&s=09" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://whatsapp.com/channel/0029Va9QwL4JP21Bo0gqpM3o" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://vm.tiktok.com/ZMSU6F7E8/" class="social-icon"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4 mb-md-0 text-center">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-white">Home</a></li>
+            <li><a href="events.html" class="text-white">Events</a></li>
+            <li><a href="gallery.html" class="text-white">Gallery</a></li>
+            <li><a href="membership.html" class="text-white">Membership</a></li>
+            <li><a href="contacts.html" class="text-white">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 text-center text-md-end">
+          <h5>Contact Information</h5>
+          <p>Kakamega Town, Kenya</p>
+          <p>Email: kucscbo1@gmail.com</p>
+          <p>Phone: +254112473354</p>
+          <p>Office Hours: Mon-Fri, 9am-5pm</p>
+        </div>
+      </div>
+      <hr class="mt-4 mb-4" style="border-color: rgba(255,255,255,0.1);">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start">
+          <p>&copy; 2025 KUCSA. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <p>Office of the President - Kakamega Universities and Colleges Students Association</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+  <script>
+    // Back to top button
+    window.addEventListener('scroll', function() {
+      var backToTop = document.getElementById('backToTop');
+      if (window.pageYOffset > 300) {
+        backToTop.style.display = 'block';
+      } else {
+        backToTop.style.display = 'none';
+      }
+    });
+    
+    document.getElementById('backToTop').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+    
+    // Gallery filter
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const filter = this.dataset.filter;
+        
+        // Filter gallery items
+        document.querySelectorAll('.gallery-item').forEach(item => {
+          if (filter === 'all' || item.dataset.category === filter) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+    
+    // Load more functionality
+    document.getElementById('loadMore').addEventListener('click', function() {
+      // In a real implementation, this would load more items from the server
+      alert('More gallery items would be loaded here in a full implementation');
+      this.textContent = 'No More Photos';
+      this.disabled = true;
+    });
+    
+    // Initialize lightbox
+    lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true,
+      'albumLabel': 'Image %1 of %2'
+    });
+  </script>
+</body>
+</html>
